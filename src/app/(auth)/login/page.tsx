@@ -2,8 +2,9 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useActionState, useState } from "react";
-import Button from "@/components/Button";
-import PageLayout from "@/components/PageLayout";
+import Button from "@/components/ui/Button";
+import PageLayout from "@/components/ui/PageLayout";
+import Input from "@/components/ui/Input";
 import { getDictionary } from "@/i18n/config";
 import { signInAction, signUpAction } from "../actions";
 
@@ -134,40 +135,34 @@ export default function AuthPage() {
 
                   <div className="grid gap-4">
                     {mode === "register" ? (
-                      <label className="flex flex-col gap-2 text-sm font-medium text-slate-100">
-                        {dict.auth.username}
-                        <input
-                          required
-                          type="text"
-                          name="username"
-                          className="w-full rounded-xl bg-white/5 px-3 py-3 text-base text-white outline-none ring-1 ring-inset ring-white/15 transition focus:ring-white/40"
-                          placeholder="User name"
-                        />
-                      </label>
+                      <Input
+                        variant="auth"
+                        label={dict.auth.username}
+                        name="username"
+                        required
+                        type="text"
+                        placeholder="User name"
+                      />
                     ) : null}
 
-                    <label className="flex flex-col gap-2 text-sm font-medium text-slate-100">
-                      {dict.auth.email}
-                      <input
-                        required
-                        type="email"
-                        name="email"
-                        className="w-full rounded-xl bg-white/5 px-3 py-3 text-base text-white outline-none ring-1 ring-inset ring-white/15 transition focus:ring-white/40"
-                        placeholder="you@example.com"
-                      />
-                    </label>
+                    <Input
+                      variant="auth"
+                      label={dict.auth.email}
+                      name="email"
+                      required
+                      type="email"
+                      placeholder="you@example.com"
+                    />
 
-                    <label className="flex flex-col gap-2 text-sm font-medium text-slate-100">
-                      {dict.auth.password}
-                      <input
-                        required
-                        minLength={6}
-                        type="password"
-                        name="password"
-                        className="w-full rounded-xl bg-white/5 px-3 py-3 text-base text-white outline-none ring-1 ring-inset ring-white/15 transition focus:ring-white/40"
-                        placeholder="********"
-                      />
-                    </label>
+                    <Input
+                      variant="auth"
+                      label={dict.auth.password}
+                      name="password"
+                      required
+                      minLength={6}
+                      type="password"
+                      placeholder="********"
+                    />
                   </div>
 
                   {activeForm.state.error ? (

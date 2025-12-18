@@ -12,6 +12,7 @@ type BaseProps = {
   size?: ButtonSize;
   fullWidth?: boolean;
   className?: string;
+  disabled?: boolean;
 };
 
 type ButtonAsButton = BaseProps &
@@ -54,10 +55,11 @@ export default function Button(props: ButtonProps) {
     fullWidth,
     className,
     children,
+    disabled,
     ...rest
   } = props;
 
-  const classes = cn(baseStyles, variantStyles[variant], sizeStyles[size], fullWidth && "w-full", className);
+  const classes = cn(baseStyles, variantStyles[variant], sizeStyles[size], fullWidth && "w-full", className, "cursor-pointer!");
 
   if ("href" in props && props.href) {
     const { href, ...linkProps } = rest as ButtonAsLink;
@@ -70,7 +72,7 @@ export default function Button(props: ButtonProps) {
 
   const buttonProps = rest as ButtonAsButton;
   return (
-    <button type={buttonProps.type ?? "button"} className={classes} {...buttonProps}>
+    <button type={buttonProps.type ?? "button"} className={classes} {...buttonProps} disabled={disabled}>
       {children}
     </button>
   );

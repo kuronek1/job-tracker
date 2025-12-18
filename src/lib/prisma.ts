@@ -12,7 +12,8 @@ export const prisma =
     adapter: new PrismaPg(
       new Pool({
         connectionString: process.env.DATABASE_URL,
-        ssl: { rejectUnauthorized: false }, // Supabase/Postgres обычно требует TLS
+        // TLS is required for most managed Postgres providers (including Supabase)
+        ssl: { rejectUnauthorized: false },
       })
     ),
     log: ["error", "warn"],

@@ -4,6 +4,7 @@ import { JobStatus } from "../generated/prisma/enums";
 export async function listJobs(userId: string) {
   return prisma.job.findMany({
     where: { userId },
+    // TODO: consider adding pagination (skip/take) and optional filters (status/search) for large job lists.
     orderBy: { createdAt: "desc" },
   });
 }

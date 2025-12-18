@@ -14,7 +14,7 @@ export default function PageLayout({ children, rightSlot, contentClassName }: Pa
     <div className="relative mx-auto w-full max-w-[1350px] px-6">
       <header className="flex items-center justify-between gap-4 py-8">
         <Link href="/" className="group flex items-center gap-3 duration-300 hover:scale-90">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br from-black via-black to-emerald-400 text-base font-semibold text-whitre shadow-lg shadow-emerald-500/25 transition ">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br from-black via-black to-emerald-400 text-base font-semibold text-whitre shadow-lg shadow-emerald-500/25 transition">
             JT
           </div>
           <div className="leading-tight">

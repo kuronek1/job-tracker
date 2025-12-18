@@ -9,6 +9,7 @@ const SESSION_COOKIE_NAME = "jt_session";
 const SESSION_MAX_AGE_DAYS = 7;
 
 function hashToken(token: string) {
+  // TODO: consider using a stronger, adaptive hashing algorithm (e.g. bcrypt/argon2) for session tokens if threat model requires it.
   return createHash("sha256").update(token).digest("hex");
 }
 
@@ -28,6 +29,7 @@ export async function verifyPassword(password: string, storedHash: string) {
 export async function registerUser(email: string, password: string, username: string) {
   const passwordHash = await hashPassword(password);
   const user = await prisma.user.create({
+    // TODO: validate email format and enforce unique constraints at the application layer (not only via DB errors).
     data: { email: email.toLowerCase(), username, passwordHash },
   });
   await createSession(user.id);
