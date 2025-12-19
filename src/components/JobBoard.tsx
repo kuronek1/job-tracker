@@ -220,7 +220,7 @@ export default function JobBoard(props: JobBoardProps) {
           createJobAction={createJobAction}
         />
       ) : (
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid w-full max-w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
           {orderedStatuses.map((status) => (
             <JobBoardColumn
               key={status}

@@ -53,7 +53,7 @@ export default function JobBoardColumn(props: JobBoardColumnProps) {
 
   return (
     <div
-      className={`flex flex-col gap-3 rounded-2xl border p-3 transition-colors ${
+      className={`flex w-full min-w-0 flex-col gap-3 rounded-2xl border p-3 transition-colors ${
         isActive
           ? "border-emerald-400/70 bg-emerald-500/10"
           : "border-white/10 bg-black/20"

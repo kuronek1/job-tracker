@@ -65,7 +65,7 @@ export default function JobCard({
   const theme = statusTheme[job.status];
 
   return (
-    <article className="flex flex-col gap-2 rounded-xl border border-white/10 bg-black/25 p-3 text-sm text-slate-100">
+    <article className="flex w-full max-w-full flex-col gap-2 rounded-xl border border-white/10 bg-black/25 p-2 text-xs text-slate-100 sm:p-3 sm:text-sm">
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0">
           <h3 className="truncate text-sm font-semibold">{job.title}</h3>
